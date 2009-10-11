@@ -1,0 +1,22 @@
+Remoteling-PHP
+=====
+This is the offical PHP library for Remoteling.
+
+* See http://remoteling.com/ for docs and to get an account.
+* We'd love any pull requests, suggestions, bug reports, or issues you run into!
+
+Synopsis:
+======
+
+	require 'remoteling.php';
+	
+	$r = new Remoteling('2b0846cab17d80d2dae115bbedc3aa75cd732dccb5f412ea5e2451d6afd31fb9');
+	
+	$r->set('example','value')
+	$r->get('example')
+	$r->push('queue1','value')
+	$r->pop('queue1')
+	$r->run('proc_name','variables_to_send')
+	$r->run_serialized('p "foo"','more_variables_to_send')
+
+Copyright (c) 2009 Pike Engineering, released under the MIT license

@@ -58,14 +58,21 @@ class Remoteling {
 		$url = $this->host.'process/';
 		
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-		curl_setopt($ch, CURLOPT_POSTFIELDS, 'process[code]='.urlencode($code).'&process[vars]='.$vars);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, 'process[code]='.urlencode($code).'&process[variables]='.$vars);
 		curl_setopt($ch, CURLOPT_URL, $url);
 		
 	  return $this->run_curl($ch);
 	}
 	
 	public function run($proc_name, $vars) {
+		$ch = $this->new_curl();
+		$url = $this->host.'process/'.$proc_name;
 		
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $vars);
+		curl_setopt($ch, CURLOPT_URL, $url);
+		
+	  return $this->run_curl($ch);	
 	}
 	
 	
